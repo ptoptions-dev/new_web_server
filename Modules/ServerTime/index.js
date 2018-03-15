@@ -1,8 +1,8 @@
 (function () {
     var _servertime_index = {
-        Init: function (client) {
+        Init: function (emit) {
             setInterval(function () {
-                client.emit('servertime', new Date());
+                emit('servertime', new Date());
             }, 999);
         }
     };

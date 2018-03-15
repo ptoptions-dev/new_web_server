@@ -10,7 +10,7 @@
      */
 
     var Quotes = [];
-    var _client;
+    var _emit;
 
     function _init(ioclient) {
         var quotesSocket = ioclient.connect(process.env.quotes_endpoint);
@@ -39,7 +39,7 @@
 
         function _initClientQuotes(symbols, client) {
             quotesSocket.emit('subscribe', symbols, process.env.quotes_type, 6);
-            _client = client;
+            _emit = client;
         }
     }
 
@@ -64,8 +64,8 @@
     }
 
     function _onQuote() {
-        if (_client) {
-            _client.emit('newquote', Quotes);
+        if (_emit) {
+            _emit('newquote', Quotes);
         }
     }
 })();
