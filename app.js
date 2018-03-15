@@ -32,4 +32,8 @@ function ServicePath(path) {
     return process.env.base_path + path;
 }
 
+function d(){
+
+}
+
 module.exports = app;
